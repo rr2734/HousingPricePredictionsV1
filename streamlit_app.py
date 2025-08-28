@@ -2,6 +2,7 @@ import streamlit as st
 import pickle
 import io
 import json
+import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -17,24 +18,24 @@ from sklearn.tree import DecisionTreeRegressor
 
 # --- Load your saved models ---
 with open('multilinear_regression_model.pkl', 'rb') as f:
-    model_sk = pickle.load(f)
+    model_sk = joblib.load(f)
 
 with open('decision_tree_regressor.pkl', 'rb') as f:
-    tree_model = pickle.load(f)
+    tree_model = joblib.load(f)
 with open('scaler.pkl', 'rb') as f:
-    scaler = pickle.load(f)
+    scaler = joblib.load(f)
 with open('adaboost_regressor.pkl', 'rb') as f:
-    adaboost_regressor = pickle.load(f)
+    adaboost_regressor = joblib.load(f)
 with open('bagging_model.pkl', 'rb') as f:
-    bagging_model = pickle.load(f)
+    bagging_model = joblib.load(f)
 with open('gnb.pkl', 'rb') as f:
-    gnb = pickle.load(f)
+    gnb = joblib.load(f)
 with open('gradientboostingmodel.pkl', 'rb') as f:
-    gradientboostingmodel = pickle.load(f)
+    gradientboostingmodel = joblib.load(f)
 with open('randomforestmodel.pkl', 'rb') as f:
-    randomforestmodel = pickle.load(f)
+    randomforestmodel = joblib.load(f)
 with open('xgb_model.pkl', 'rb') as f:
-    xgb_model = pickle.load(f)
+    xgb_model = joblib.load(f)
 
 
 train_data = pd.read_csv('https://raw.githubusercontent.com/rr2734/rashmir/refs/heads/main/train.csv')  # path to your original training file
@@ -169,6 +170,7 @@ if uploaded_file is not None:
     except Exception as e:
 
         st.error(f"Error reading file: {e}")
+
 
 
 
